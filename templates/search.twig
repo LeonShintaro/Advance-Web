@@ -4,9 +4,14 @@
 <body>
     {% include 'partials/navigation.twig'%}
     <div class = "container">
-
+        <div class ="row">
+        <div class="col">
+        {% set total = result | length %}
+        <h5>You searched for {{keyword}} return {{total}} items</h5>
+        </div>
+        </div>
         <div class = "row" >
-            {% for item in products %}
+            {% for item in result %}
             <div class ="col-md-3">
                 <h4 class="text-capitaliza" style="min-height: 4rem;"> {{item.name}}</h4>
                 <a href="detail.php?product_id={{item.product_id}}">
